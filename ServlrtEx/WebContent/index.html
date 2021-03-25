@@ -15,7 +15,7 @@
 	height = 320
 	alt="프로필" />
 	<h3>요청 처리 연습</h3>
-	<p>
+	
 	<!-- a태그:페이지 링크 -->
 	<p>
 	
@@ -24,7 +24,21 @@
 	<p>
 	<a href ="hs?name=Servlrt">Servlet 호출(get방식)</a>
 	</p>
-	</p>
+	
+	<h3>POST 전송 연습</h3>
+	<!-- action: 요청 처리할 url
+	method:요청 전송 방식 -->
+	<form action="hs"
+	method="POST">
+	<label for ="last_name">성(Family Name)</label>
+	<input type="text" id="last_name" name="last_name">
+	<br/>
+	<label for="first_name">이름(first_name)</label>
+	<input type="text" id="first_name" name="first_name">
+	<br/>
+	<input type ="submit" value="전송"/>
+	</form>
+	
 	<h3> 테이블연습</h3>
 	<p><a href ="table.html">테이블연습</a>
 	</p>
