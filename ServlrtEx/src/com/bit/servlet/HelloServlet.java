@@ -16,14 +16,14 @@ public class HelloServlet extends HttpServlet {
 		//post 방식 요청을 처리하기 위한 메서드
 		//폼으로 전송된 파라메터 받아오기
 		//입력 데이터 인코딩
-		req.setCharacterEncoding("UTF-8");
+		//req.setCharacterEncoding("UTF-8"); //필터에서 처리
 		//	폼내의 input 태그 name 속성
 		String firstName = req.getParameter("last_name");
 		String lastName = req.getParameter("first_name");
 		
 		//응답 객체에서 Writer 얻어 온다
 		//응답되는 데이터가 text/html임을 브라우저에게 알려줌
-		resp.setContentType("text/html;charset=UTF-8");
+		//resp.setContentType("text/html;charset=UTF-8");//필터에서 처리
 		PrintWriter out = resp.getWriter();
 		out.println("<h1> From Data</h1>");
 		out.println("<p>성: "+firstName+"</p>");
