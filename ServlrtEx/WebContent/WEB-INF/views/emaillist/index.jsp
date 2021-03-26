@@ -11,7 +11,7 @@
 <title>이메일 리스트 확인</title>
 </head>
 <body>
-	<h1> 메일 리스트</h1>
+	<h1> 메일 리스트 (model 2)</h1>
 	<%	//	DAO 불러오기
 	EmailDao dao = new EmailDaoOraclmpl();
 	//	목록 받아오기
