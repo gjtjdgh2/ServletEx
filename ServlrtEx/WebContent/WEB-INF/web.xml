@@ -52,7 +52,8 @@
   <!-- 4) 서블릿이 응답을 돌려주기 위해 반응할 url 패턴 -->
   <url-pattern>/hs</url-pattern>
   </servlet-mapping>
-  
+ 
+
    <!-- 
   요청 /hs -> 4) -> 3) -> 1) -> 2) -> 브라우저에 응답
    -->
