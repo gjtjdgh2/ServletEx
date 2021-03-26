@@ -12,8 +12,9 @@
 <p> 메일 리스트에 가입 하려면 아래 항목을 기입하시고<br/>
 등록 버튼을 눌러 주세요</p>
 
-<form action="insert.jsp"
+<form action="<%= request.getContextPath() %>/el"
 		method="POST">
+		<input type="hidden" name="action" value="insert" /><!-- 숨은 데이터 -->
 		<label for="last_name">성</label>
 		<input type="text" name="last_name" id="last_name" />
 		<br/>
@@ -25,10 +26,10 @@
 		
 		<input type="submit" value="등록" />
 	</form>
-
-<p>
-<a href="index.jsp">목록</a>
-</p>
+	
+	<p>
+		<a href="index.jsp">목록</a>
+	</p>
 
 
 </body>
