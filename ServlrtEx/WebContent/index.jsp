@@ -66,4 +66,9 @@
 	<a href="el">이메일 v2</a>
 	</p>
 
+<h3>Cookie Test</h3>
+<p>
+<a href="<%=request.getContextPath() %>/cookies">쿠키 테스트</a>
+</p>
+
 <%@ include file="/WEB-INF/views/includes/footer.jsp" %>
