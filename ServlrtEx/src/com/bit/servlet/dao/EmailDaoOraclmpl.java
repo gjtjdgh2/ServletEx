@@ -142,7 +142,7 @@ public class EmailDaoOraclmpl implements EmailDao {
 			
 			pstmt.setString(1, vo.getLastName());
 			pstmt.setString(2, vo.getFirstName());
-			pstmt.setString(3, vo.getEmail());
+			pstmt.setString(3, vo.getNewemail());
 			pstmt.setString(4, vo.getEmail());
 			
 			updateCouny =pstmt.executeUpdate();

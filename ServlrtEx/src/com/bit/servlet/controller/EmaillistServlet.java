@@ -63,16 +63,18 @@ public class EmaillistServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 String action = req.getParameter("action");	//	히든 필드
 		if("update".equals(action)){
+			String email = req.getParameter("email");
 			String firstName = req.getParameter("first_name");
 			String lastName = req.getParameter("last_name");
-			String email = req.getParameter("email");
-			String ppemail = req.getParameter("ppemail");
+			String newemail = req.getParameter("new_email");
+			
 			
 			EmailVo vo = new EmailVo();
+			vo.setEmail(email);
 			vo.setLastName(lastName);
 			vo.setFirstName(firstName);
-			vo.setEmail(email);
-			vo.setEmail(ppemail);
+			vo.setNewemail(newemail);
+			
 			
 EmailDao dao = new EmailDaoOraclmpl();
 			

@@ -8,7 +8,7 @@ public class EmailVo {
 	private String lastName;
 	private String firstName;
 	private String email;
-	private String ppemail;
+	private String newemail;
 	private  Date createAt;
 	
 	//생성자
@@ -22,13 +22,19 @@ public class EmailVo {
 		this.email =email;
 	}
 	
-	public EmailVo(String ppemail,String lastName , String firstName , String email) {
+	public EmailVo(String newemail,String lastName , String firstName , String email) {
 		this.lastName = lastName;
 		this.firstName=firstName;
 		this.email =email;
-		this.ppemail=ppemail;
+		this.newemail=newemail;
 	}
 	
+	public String getNewemail() {
+		return newemail;
+	}
+	public void setNewemail(String newemail) {
+		this.newemail = newemail;
+	}
 	public EmailVo(String lastName,String firstName,String email,Date createAt) {
 		this(lastName,firstName,email);
 		this.createAt = createAt;

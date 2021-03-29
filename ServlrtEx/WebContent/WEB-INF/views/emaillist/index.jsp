@@ -10,7 +10,7 @@
 </head>
 <body>
 <p>
-<a href="index.html"> 뒤로가기</a>
+<a href="index.jsp"> 뒤로가기</a>
 </p>
 
 	<h1>메일 리스트v2</h1>
@@ -46,6 +46,13 @@
 					<!-- 전송 버튼 -->
 					<input type="submit" value="삭제" />
 				</form>
+				<td>
+				<form action="<%= request.getContextPath() %>/el?a=form2" method="POST">
+				<input type="hidden" name="a" value="update" />
+				<input type="submit" value="수정" />
+	
+	</form>
+	</td>
 				</td>
 				<!-- TODO: 수정 기능을 구현해보기 -->
 				
@@ -55,9 +62,6 @@
 	<%
 	}
 	%>
-	<p>
-	<a href="<%= request.getContextPath() %>/el?a=form2">메일링 리스트 수정(MVC)</a>
-	</p>
 	
 	<p>
 		<a href="<%= request.getContextPath() %>/el?a=form">메일링 리스트 가입(MVC)</a>

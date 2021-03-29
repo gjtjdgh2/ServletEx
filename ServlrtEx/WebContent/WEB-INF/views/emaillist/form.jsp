@@ -26,7 +26,6 @@
 		
 		<input type="submit" value="등록" />
 	</form>
-	
 	<p>
 		<a href="el">목록</a>
 	</p>
