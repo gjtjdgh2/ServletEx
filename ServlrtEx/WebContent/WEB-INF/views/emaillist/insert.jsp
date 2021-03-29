@@ -15,5 +15,5 @@ dao.insert(vo);	//	저장 완료
 //	리스트 페이지로 돌려보내기: 302 -> REDIRECT
 //	요청하는 페이지의 context path는 서버 환경, 설정에 따라
 //	유동적으로 변할 수 있다 -> 동적으로 context path를 확인해야 한다
-response.sendRedirect(request.getContextPath() + "/emaillist/");
+response.sendRedirect(request.getContextPath() + "/el");
 %>

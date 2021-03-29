@@ -8,6 +8,7 @@ public class EmailVo {
 	private String lastName;
 	private String firstName;
 	private String email;
+	private String ppemail;
 	private  Date createAt;
 	
 	//생성자
@@ -19,6 +20,13 @@ public class EmailVo {
 		this.lastName = lastName;
 		this.firstName=firstName;
 		this.email =email;
+	}
+	
+	public EmailVo(String ppemail,String lastName , String firstName , String email) {
+		this.lastName = lastName;
+		this.firstName=firstName;
+		this.email =email;
+		this.ppemail=ppemail;
 	}
 	
 	public EmailVo(String lastName,String firstName,String email,Date createAt) {

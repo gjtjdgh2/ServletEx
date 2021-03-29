@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>이메일 리스트: 가입폼</title>
+<title>Insert title here</title>
 </head>
 <body>
 
@@ -14,7 +14,10 @@
 
 <form action="<%= request.getContextPath() %>/el"
 		method="POST">
-		<input type="hidden" name="action" value="insert" /><!-- 숨은 데이터 -->
+		<input type="hidden" name="action" value="update" /><!-- 숨은 데이터 -->
+		<label for="email">수정 이메일</label>
+		<input type="text" name="ppemail" id="email" />
+		<br/>
 		<label for="last_name">성</label>
 		<input type="text" name="last_name" id="last_name" />
 		<br/>
@@ -23,6 +26,8 @@
 		<br/>
 		<label for="email">이메일</label>
 		<input type="text" name="email" id="email" />
+		
+		
 		
 		<input type="submit" value="등록" />
 	</form>

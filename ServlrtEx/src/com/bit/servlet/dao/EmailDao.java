@@ -7,5 +7,6 @@ public interface EmailDao {
 
 	public List<EmailVo> getList();
 	public int insert(EmailVo vo);
+	public int update(EmailVo vo );
 	public int delete(Long no);
 }

@@ -1,13 +1,14 @@
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="UTF-8">
-<title>Serlet 연습</title>
-</head>
-<body>
-	<h1> Hellow Web World</h1>
-	<h3>Static HTML Page</h3>
-	<p> 이건 정적 HTML </p>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+
+<!-- 다른 페이지 파일을 포함 -->
+<!-- 별도로가 아니라 1개로 취급한다 -->
+<%@ include file="/WEB-INF/views/includes/header.jsp" %>
+	<!-- hsp:include는 jsp에 포함하여 컴파일하지 않고 별도의 서블릿에 요청하는것 -->
+<jsp:include page="/WEB-INF/views/includes/nav.jsp" />
+	
+	<!--  <h3>Static HTML Page</h3>
+	<p> 이건 정적 HTML </p>-->
 	<!-- images 태그: 그림 삽입 -->
 	<!-- src 이미지 위치  alt 태체 태스트 -->
 	<img src="images/수달.jpg" 
@@ -65,6 +66,4 @@
 	<a href="el">이메일 v2</a>
 	</p>
 
-	
-</body>
-</html>
+<%@ include file="/WEB-INF/views/includes/footer.jsp" %>

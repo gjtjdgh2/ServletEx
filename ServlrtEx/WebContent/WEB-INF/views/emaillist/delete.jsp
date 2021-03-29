@@ -8,7 +8,7 @@ Long no = Long.valueOf(request.getParameter("no"));	//	converting
 EmailDao dao = new EmailDaoOraclmpl();
 dao.delete(no);
 //	리스트 페이지로 리다이렉트
-response.sendRedirect(request.getContextPath() + "/emaillist");
+response.sendRedirect(request.getContextPath() + "/el");
 %>
     
     

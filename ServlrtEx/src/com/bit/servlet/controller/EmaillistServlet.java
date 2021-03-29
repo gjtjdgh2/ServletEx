@@ -41,8 +41,12 @@ public class EmaillistServlet extends HttpServlet {
 			dao.delete(no);
 			
 			resp.sendRedirect(req.getContextPath()+"/el");
-		}
-		else {
+		}else if ("form2".equals(action)) {	//	a=form이면 
+				//	등록 폼: 파라미터에서 a를 확인 form이면 분기
+				RequestDispatcher rd = 
+						getServletContext().getRequestDispatcher("/WEB-INF/views/emaillist/form2.jsp");
+				rd.forward(req, resp);
+		}else {
 			//리스트를 불러와 req애 attribute추가
 			EmailDao dao = new EmailDaoOraclmpl();
 			List<EmailVo> list = dao.getList();
@@ -58,8 +62,26 @@ public class EmaillistServlet extends HttpServlet {
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 String action = req.getParameter("action");	//	히든 필드
-		
-		if ("insert".equals(action)) {	//	action이 insert -> 삽입
+		if("update".equals(action)){
+			String firstName = req.getParameter("first_name");
+			String lastName = req.getParameter("last_name");
+			String email = req.getParameter("email");
+			String ppemail = req.getParameter("ppemail");
+			
+			EmailVo vo = new EmailVo();
+			vo.setLastName(lastName);
+			vo.setFirstName(firstName);
+			vo.setEmail(email);
+			vo.setEmail(ppemail);
+			
+EmailDao dao = new EmailDaoOraclmpl();
+			
+			dao.update(vo);
+			
+			//	리스트 페이지로 리다이렉트
+			resp.sendRedirect(req.getContextPath() + "/el");
+			
+	}else if ("insert".equals(action)) {	//	action이 insert -> 삽입
 			String firstName = req.getParameter("first_name");
 			String lastName = req.getParameter("last_name");
 			String email = req.getParameter("email");
@@ -68,6 +90,8 @@ String action = req.getParameter("action");	//	히든 필드
 			vo.setLastName(lastName);
 			vo.setFirstName(firstName);
 			vo.setEmail(email);
+			
+			//EmailVo vo = new EmailVo(lastName,firstName,email); 같음
 			
 			EmailDao dao = new EmailDaoOraclmpl();
 			

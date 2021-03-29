@@ -128,5 +128,38 @@ public class EmailDaoOraclmpl implements EmailDao {
 		return deletedCount;
 	}
 
+	
+	@Override
+	public int update(EmailVo vo) {
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		int updateCouny = 0;
+		
+		try {
+			conn = getConnection();
+			String sql = "update emaillist set last_name=?, first_name=?, email=? where email=?";
+			pstmt = conn.prepareStatement(sql);
+			
+			pstmt.setString(1, vo.getLastName());
+			pstmt.setString(2, vo.getFirstName());
+			pstmt.setString(3, vo.getEmail());
+			pstmt.setString(4, vo.getEmail());
+			
+			updateCouny =pstmt.executeUpdate();
+		}catch(SQLException e) {
+			e.printStackTrace();
+		}finally {
+			try {
+				pstmt.close();
+				conn.close();
+			}catch(Exception e) {
+				
+			}
+		}
+		
+		
+		return updateCouny;
+	}
+	
 
 }
