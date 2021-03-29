@@ -26,7 +26,11 @@ public class UserServlet extends HttpServlet {
 			RequestDispatcher rd= req.getRequestDispatcher("/WEB-INF/views/users/joinform.jsp");
 			rd.forward(req,resp);
 			
-		}else if("joinsuccess".equals(action)) {
+		}else if("loginform".equals(action)) {
+			RequestDispatcher rd= req.getRequestDispatcher("/WEB-INF/views/users/loginform.jsp");
+			rd.forward(req,resp);
+		}
+		else if("joinsuccess".equals(action)) {
 			RequestDispatcher rd= req.getRequestDispatcher("/WEB-INF/views/users/joinsuccess.jsp");
 			rd.forward(req,resp);
 		}

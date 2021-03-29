@@ -1,6 +1,7 @@
 package com.bit.servlet;
 
 import java.io.IOException;
+import java.net.URLDecoder;
 import java.net.URLEncoder;
 
 import javax.servlet.RequestDispatcher;
@@ -16,6 +17,38 @@ public class CookieTestServlet extends HttpServlet {
 
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		//파라메타 a로 분기
+				String action = req.getParameter("a");
+				if("delete".equals(action)) {
+					//a=delete
+					Cookie[] cookies = req.getCookies();
+					if(cookies != null) {
+						for(Cookie cookie:cookies){
+							if(cookie.getName().equals("example"));
+							//쿠키삭제-> 유효시간을 0으로 맞춘다
+							cookie.setMaxAge(0);
+							resp.addCookie(cookie);
+							break;
+						}
+					}
+				}else {
+					//쿠키 읽기 req.getCookies
+					Cookie[] cookies=req.getCookies();
+					if(cookies !=null) {//쿠키가 있다
+						for(Cookie cookie:cookies) {//셋팅했던 example cooke 찾아보기
+							if(cookie.getName().equals("example")) {
+								//쿠키값 받아오기
+								String cookieVal = URLDecoder.decode(cookie.getValue());
+								//속성추가
+								req.setAttribute("example", cookieVal);
+								break;
+							}
+							
+						}
+						
+					}
+				}
+		
 		RequestDispatcher rd= req.getRequestDispatcher("/WEB-INF/views/cookies/cookie_form.jsp");
 		
 		rd.forward(req,resp);
@@ -23,6 +56,8 @@ public class CookieTestServlet extends HttpServlet {
 
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		
+		
 		//쿠키로 설정할 파라메타값 읽어오기
 		String value = req.getParameter("example");
 		value=URLEncoder.encode(value,"UTF-8");

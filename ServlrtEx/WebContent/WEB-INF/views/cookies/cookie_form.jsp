@@ -1,5 +1,14 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    
+ <%
+ //서블릿에서 넘어온 example 객체 확인
+ String cookieValue = (String)request.getAttribute("example");
+ System.out.println("Cookie Value:" + cookieValue);
+ if (cookieValue == null) {
+		cookieValue = "";
+ }
+ %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -13,9 +22,13 @@
 	<h3>Add/Edit Cookie</h3>
 	<form method="POST" action="<%= request.getContextPath() %>/cookies">
 	<label for="example">Cookie value</label>
-	<input type="text" name ="example" id="example">
+	<input type="text" name ="example" id="example" vlaue="<%=cookieValue %>">
 	<input type="submit" value="쿠키 설정">
 	</form>
 	
+	<h4>delete Cookie</h4>
+	<p>
+	<a href="<%= request.getContextPath() %>/cookies?a=delete">쿠키 삭제</a>
+	</p>
 </body>
 </html>
