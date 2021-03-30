@@ -4,6 +4,7 @@
 <!-- 다른 페이지 파일을 포함 -->
 <!-- 별도로가 아니라 1개로 취급한다 -->
 <%@ include file="/WEB-INF/views/includes/header.jsp" %>
+
 	<!-- hsp:include는 jsp에 포함하여 컴파일하지 않고 별도의 서블릿에 요청하는것 -->
 <jsp:include page="/WEB-INF/views/includes/nav.jsp" />
 	
